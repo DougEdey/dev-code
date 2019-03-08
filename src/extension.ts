@@ -181,7 +181,7 @@ class FileFinder {
         }
 
         // # run tests for web
-        regexp = new RegExp(/^.*components\/(.*)\.tsx$/);
+        regexp = new RegExp(/^.*components\/.*\/(.*)\.tsx$/);
         matches = regexp.exec(filename);
         if (matches !== null) {
             let model = matches[1];
