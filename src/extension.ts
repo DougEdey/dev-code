@@ -180,6 +180,14 @@ class FileFinder {
             potential_test_files.add(`test/unit/maintenance/${model}_test.rb`);
         }
 
+        // # run tests for web
+        regexp = new RegExp(/^.*components\/(.*)\.tsx$/);
+        matches = regexp.exec(filename);
+        if (matches !== null) {
+            let model = matches[1];
+            potential_test_files.add(`${filename}/tests/${model}.test.tsx`);
+        }
+
         let available_test_files: string[] = [];
         for(let filename of potential_test_files) {
             let test_file_name = this.workspaceRoot + "/" + filename;
